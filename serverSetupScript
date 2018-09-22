@@ -1,5 +1,0 @@
-#!/bin/bash
-npm i
-gnome-terminal -x sh -c "mongod; bash"
-timeout 7s gnome-terminal -x sh -c "mongo; bash" &
-cat 'hello world!'
