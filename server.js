@@ -23,10 +23,18 @@ app.set('view engine', 'pug');
 //this is where you add the rest of the code
 
 app.get('/userListing', (req, res) => {
-    const newUser = new user();
 });
 
-app.get('/addUser/', (req, res) => {});
+app.get('/addUser/', (req, res) => {
+    const newUser = new user();
+    const body = req.body;
+    console.log(newUser);
+    // newUser.age = body.age;
+    // newUser.name = body.name;
+    // newUser.gender = body.gender;
+    // newUser.phone = body.phone;
+    // newUser.address = body.address;
+});
 
 app.get('/edit/:uid', (req, res) => {});
 
