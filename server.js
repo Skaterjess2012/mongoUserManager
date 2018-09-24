@@ -34,7 +34,13 @@ app.post('/add/:uid', (req, res) => {});
 
 app.post('/update/:uid', (req, res) => {});
 
-app.post('/delete/:uid', (req, res) => {});
+app.post('/delete/:uid', (req, res) => {
+    let uid = req.params.uid;
+    user.findOneAndDelete({'_id': uid}, (err, data) => {
+        if (err) return console.log(`Oops! ${err}`);
+        console.log('success');
+    });
+});
 
 app.listen(port, (err) => {
     if (err) console.log(err);
