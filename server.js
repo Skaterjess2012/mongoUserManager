@@ -23,33 +23,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'pug');
 
 //GET Requests
-app.get('/', (req, res) => { //userListing Page
+app.get('/', (req, res) => {
     user.find({}, (err, docs) => {
         if (err) console.log(err);
         res.render('userListing', {users: docs});
     });
 });
 
-app.get('/add', (req, res) => { //Add Page
+app.get('/add', (req, res) => {
     res.render('add');
 });
 
-app.get('/edit/:uid', (req, res) => { //Edit Page
-    user.findOne({_id:uid}, (err, docArray) => {
-        if (err) console.log(err);
-        res.render('edit', {user:docArray[0]});
-    });
-});
-
-app.get('/delete/:uid', (req, res) => { //Delete request
-    let uid = req.params.uid;
-    user.findOneAndDelete({'_id': uid}, (err, data) => {
-        if (err) return console.log(`Oops! ${err}`);
-        res.redirect('/');
-    });
-});
-
-app.post('/add', (req, res) => { //Add request
+app.post('/add', (req, res) => {
     const newUser = new user();
     const body = req.body;
 
@@ -65,7 +50,14 @@ app.post('/add', (req, res) => { //Add request
     });
 });
 
-app.post('/update/:uid', (req, res) => { //update request
+app.get('/edit/:uid', (req, res) => {
+    user.findOne({_id:uid}, (err, docArray) => {
+        if (err) console.log(err);
+        res.render('edit', {user:docArray[0]});
+    });
+});
+
+app.post('/update/:uid', (req, res) => {
     const uid = req.params.uid;
     const body = req.body;
     const updatedUserData = {
@@ -75,9 +67,17 @@ app.post('/update/:uid', (req, res) => { //update request
         phone: body.phone,
         address: body.address
     };
-    
+
     user.findOneAndUpdate({_id:uid}, updatedUserData, {new: true}, (err, data) => {
         if (err) console.log(err);
+        res.redirect('/');
+    });
+});
+
+app.get('/delete/:uid', (req, res) => {
+    let uid = req.params.uid;
+    user.findOneAndDelete({'_id': uid}, (err, data) => {
+        if (err) return console.log(`Oops! ${err}`);
         res.redirect('/');
     });
 });
