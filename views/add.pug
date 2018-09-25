@@ -1,0 +1,13 @@
+html
+    head
+        link(rel="stylesheet", href="/style/add.css")
+    body
+        div(class="container")
+            form(action="/add", method="post")
+                input(placeholder="Age" type="number" name="age")
+                input(placeholder="Name" type="text" name="name")
+                input(placeholder="Gender" type="text" name="gender")
+                input(placeholder="Phone" type="number" name="phone")
+                input(placeholder="Address" type="text" name="address")
+                input(placeholder="Save" type="submit")
+                a(href="/") Cancel

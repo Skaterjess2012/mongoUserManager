@@ -1,0 +1,26 @@
+html
+    head
+        link(rel="stylesheet", href="/style/edit.css")
+    body
+        table
+            tr
+                th Age
+                th Name
+                th Gender
+                th Phone
+                th Address
+            tr
+                form(action=`/update/${user._id}` method="post")
+                    td
+                        input(placeholder="Age" type="number" name="age" value=`${user.age}`)
+                    td
+                        input(placeholder="Name" type="text" name="name" value=`${user.name}`)
+                    td
+                        input(placeholder="Gender" type="text" name="gender" value=`${user.gender}`)
+                    td
+                        input(placeholder="Phone" type="number" name="phone" value=`${user.phone}`)
+                    td
+                        input(placeholder="Address" type="text" name="address" value=`${user.address}`)
+                    td
+                        input(placeholder="Save" type="submit")
+        a(href="/") Cancel

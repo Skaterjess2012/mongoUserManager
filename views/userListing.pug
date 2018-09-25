@@ -1,0 +1,24 @@
+html
+    head
+        link(rel="stylesheet", href="/style/userListing.css")
+    body
+        table
+            tr
+                th age
+                th name
+                th gender
+                th phone
+                th address
+            each user, index in users
+                tr
+                    td #{user.age}
+                    td #{user.name}
+                    td #{user.gender}
+                    td #{user.phone}
+                    td #{user.address}
+                    td
+                        a(href=`/edit/${user._id}`) Edit
+                        |
+                        |
+                        a(href=`/delete/${user._id}`) Delete
+        a(href="/add") Add User
