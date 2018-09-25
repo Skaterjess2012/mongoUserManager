@@ -5,6 +5,7 @@ mongoose.connect('mongodb://localhost/userManagement', {useNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('db connected'));
+db.once('close', () => console.log('Good bye!'));
 
 const userSchema = new mongoose.Schema({
     age: Number,
@@ -16,7 +17,7 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.model('userCollection', userSchema);
 
-const JFile = path.join(__dirname, 'userData.json');
+const JFile = path.join(__dirname, '/public/userDummyData.json');
 fs.readFile(JFile, 'utf8', (err, data) => {
     let JData = JSON.parse(data);
     JData.forEach((user, index) => {
@@ -26,9 +27,10 @@ fs.readFile(JFile, 'utf8', (err, data) => {
         newUser.gender = user.gender;
         newUser.phone = user.phone;
         newUser.address = user.address;
-        newUser.save((err, data) => {
-            if (err) console.log(err);
-        });
+        // newUser.save((err, data) => {
+        //     if (err) console.log(err);
+        // });
     });
     console.log(`${JData.length} Objects where added to the database!`);
+    mongoose.disconnect();
 });

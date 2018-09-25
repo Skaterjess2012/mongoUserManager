@@ -1,24 +1,28 @@
 html
     head
         link(rel="stylesheet", href="/style/userListing.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto")
     body
-        table
-            tr
-                th age
-                th name
-                th gender
-                th phone
-                th address
-            each user, index in users
+        div(class="menuBar")
+            a(href="/add") Add User
+            input(placeholder="Search" type="text" name="searchInput")
+        div(class="container")
+            table
                 tr
-                    td #{user.age}
-                    td #{user.name}
-                    td #{user.gender}
-                    td #{user.phone}
-                    td #{user.address}
-                    td
-                        a(href=`/edit/${user._id}`) Edit
-                        |
-                        |
-                        a(href=`/delete/${user._id}`) Delete
-        a(href="/add") Add User
+                    th age
+                    th name
+                    th gender
+                    th phone
+                    th address
+                each user, index in users
+                    tr
+                        td #{user.age}
+                        td #{user.name}
+                        td #{user.gender}
+                        td #{user.phone}
+                        td #{user.address}
+                        td
+                            a(href=`/edit/${user._id}`) Edit
+                            |
+                            |
+                            a(href=`/delete/${user._id}`) Delete

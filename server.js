@@ -54,9 +54,7 @@ app.get('/edit/:uid', (req, res) => {
     const uid = req.params.uid;
     user.findOne({_id:uid}, (err, docArray) => {
         if (err) console.log(err);
-        //** This is where it doesn't work**/
-        console.log(docArray[0]);
-        res.render('edit', {user:docArray[0]});
+        res.render('edit', {user:docArray});
     });
 });
 

@@ -1,0 +1,44 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.menuBar {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  align-items: center;
+  background-color: purple;
+  height: 3em;
+}
+.menuBar input {
+  border: 0;
+  height: 100%;
+  padding: 1em;
+}
+.menuBar input:focus {
+  outline-width: 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3em 0 0 0;
+}
+.container table {
+  border-spacing: 0px;
+}
+.container table th {
+  background-color: white;
+  padding: 0.5em;
+}
+.container table td {
+  color: white;
+  background-color: #23363b;
+  padding: 0.5em;
+}
+.container table td:nth-child(2n) {
+  background-color: #284046;
+}
