@@ -83,6 +83,16 @@ app.get('/delete/:uid', (req, res) => {
     });
 });
 
+app.post('/search', (req, res) => {
+    const body = req.body;
+    console.log(body.searchInput);
+    user.find({ $text: { $search: body.searchInput } }, (err, data) => {
+        if (err) return console.log(`Oops! ${err}`);
+        let result = JSON.parse(data);
+        res.render('userListing', {users: result});
+    });
+});
+
 app.listen(port, (err) => {
     if (err) console.log(err);
     console.log(`App Server listen on port: ${port}`);

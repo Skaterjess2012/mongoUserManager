@@ -2,10 +2,12 @@ html
     head
         link(rel="stylesheet", href="/style/userListing.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto")
+        script(src="/script/userListing.js" defer)
     body
         div(class="menuBar")
             a(href="/add") Add User
-            input(placeholder="Search" type="text" name="searchInput")
+            form(id="testForm" action="/search", method="post")
+                input(id="test" placeholder="Search" type="text" name="searchInput")
         div(class="container")
             table
                 tr
