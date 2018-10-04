@@ -73,6 +73,7 @@ app.post('/update/:uid', (req, res) => {
         if (err) console.log(err);
         res.redirect('/');
     });
+
 });
 
 app.get('/delete/:uid', (req, res) => {
@@ -84,12 +85,13 @@ app.get('/delete/:uid', (req, res) => {
 });
 
 app.post('/search', (req, res) => {
-    const body = req.body;
-    // user.find({$text:{$search:body.searchInput}}, (err, data) => {
-    //     if (err) return console.log(`Oops! ${err}`);
-    //     let result = JSON.parse(data);
-    //     res.render('userListing', {users: result});
-    // });
+    const searchInput = toString(req.body.searchInput.toLowerCase());
+    // res.send(`Search Input: ${searchInput}`);
+    user.find({$text:{$search:searchInput}}, (err, data) => {
+        if (err) return console.log(`Oops! ${err}`);
+        console.log(data);
+        res.render('userListing', {users: "hello"});
+    });
 });
 
 app.listen(port, (err) => {

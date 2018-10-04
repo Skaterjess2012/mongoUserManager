@@ -3,9 +3,12 @@ class userListing {
         this.search();
     }
     search() {
-        let searchBar = document.getElementById('test');
-        searchBar.onkeyup = (e) => {
-            document.getElementById('testForm').submit();
+        let searchForm = document.getElementById('searchForm');
+        
+        searchForm.onkeyup = (e) => {
+            if (e.keyCode === 13) {
+                searchForm.submit();
+            }
         }
     }
 }
