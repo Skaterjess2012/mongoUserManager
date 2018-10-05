@@ -12,4 +12,4 @@ class userListing {
         }
     }
 }
-let things = new userListing();
+let main = new userListing();

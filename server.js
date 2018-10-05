@@ -85,12 +85,10 @@ app.get('/delete/:uid', (req, res) => {
 });
 
 app.post('/search', (req, res) => {
-    const searchInput = toString(req.body.searchInput.toLowerCase());
-    // res.send(`Search Input: ${searchInput}`);
-    user.find({$text:{$search:searchInput}}, (err, data) => {
+    user.find({$text:{$search:req.body.searchInput}}, (err, data) => {
         if (err) return console.log(`Oops! ${err}`);
         console.log(data);
-        res.render('userListing', {users: "hello"});
+        res.render('userListing', {users: data});
     });
 });
 

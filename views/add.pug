@@ -4,10 +4,12 @@ html
     body
         div(class="container")
             form(action="/add", method="post")
+                h2(id="title") Add User
                 input(placeholder="Age" type="number" name="age")
                 input(placeholder="Name" type="text" name="name")
                 input(placeholder="Gender" type="text" name="gender")
                 input(placeholder="Phone" type="number" name="phone")
                 input(placeholder="Address" type="text" name="address")
-                input(placeholder="Save" type="submit")
-                a(href="/") Cancel
+                div(class="buttonContainer")
+                    input(class="button" placeholder="Save" type="submit")
+                    button(class="button" url="/") Cancel

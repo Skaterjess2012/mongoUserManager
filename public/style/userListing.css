@@ -9,23 +9,43 @@
   width: 100%;
   position: fixed;
   align-items: center;
-  background-color: purple;
+  justify-content: space-between;
+  background-color: lightcoral;
   height: 3em;
+  padding: 0.3em;
 }
-.menuBar input {
+.menuBar #addIcon {
+  font-size: 2.5em;
+  transition-duration: 500ms;
+  color: lightblue;
+}
+.menuBar #addIcon:hover {
+  color: lightgreen;
+  transition-duration: 500ms;
+}
+.menuBar form {
+  width: 100%;
+}
+.menuBar form input {
   border: 0;
   height: 100%;
+  width: 25%;
   padding: 1em;
+  transition-duration: 500ms;
+  font-size: 1em;
 }
-.menuBar input:focus {
+.menuBar form input:focus {
   outline-width: 0;
+  background-color: lightblue;
+  transition-duration: 500ms;
+  width: 100%;
 }
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3em 0 0 0;
+  padding: 3.6em 0 0 0;
 }
 .container table {
   border-spacing: 0px;
@@ -38,7 +58,26 @@
   color: white;
   background-color: #23363b;
   padding: 0.5em;
+  border-bottom: 0.1em solid black;
 }
 .container table td:nth-child(2n) {
   background-color: #284046;
+}
+.container table td .editIcon {
+  font-size: 1.5em;
+  transition-duration: 500ms;
+  color: lightblue;
+}
+.container table td .editIcon:hover {
+  color: lightgreen;
+  transition-duration: 500ms;
+}
+.container table td .deleteIcon {
+  font-size: 1.5em;
+  transition-duration: 500ms;
+  color: lightblue;
+}
+.container table td .deleteIcon:hover {
+  color: lightcoral;
+  transition-duration: 500ms;
 }

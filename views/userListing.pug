@@ -1,11 +1,14 @@
 html
     head
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous")
         link(rel="stylesheet", href="/style/userListing.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto")
         script(src="/script/userListing.js" defer)
+        title UserManager | List
     body
         div(class="menuBar")
-            a(href="/add") Add User
+            a(href="/add")
+                i(class="fas fa-plus-circle" id="addIcon")
             form(id="searchForm" action="/search", method="post")
                 input(id="searchBar" placeholder="Search..." type="text" name="searchInput")
         div(class="container")
@@ -24,7 +27,9 @@ html
                         td #{user.phone}
                         td #{user.address}
                         td
-                            a(href=`/edit/${user._id}`) Edit
+                            a(href=`/edit/${user._id}`)
+                                i(class="fas fa-edit editIcon")
                             |
                             |
-                            a(href=`/delete/${user._id}`) Delete
+                            a(href=`/delete/${user._id}`)
+                                i(class="fas fa-minus-circle deleteIcon")
